@@ -1,0 +1,35 @@
+{
+  "name": "hough",
+  "version": "0.0.1",
+  "description": "Hough-Transform",
+  "main": "index.js",
+  "config": {
+    "url": "https:\\/\\/www.otte.cz\\/hough\\/",
+    "site": "otte.cz\\/hough\\/"
+  },
+  "scripts": {
+    "build": "tsc && npm run minify && npm run deploy && npm run styles",
+    "build-windows": "tsc && npm run minify-windows && npm run deploy-windows && npm run styles-windows",
+    "minify": "uglifyjs dist/app.js --compress --mangle --no-annotations --output dist/app.$npm_package_version.min.js",
+    "minify-windows": "uglifyjs dist/app.js --compress --mangle --no-annotations --output dist/app.%npm_package_version%.min.js",
+    "deploy": "cp src/index.php dist/index.php && sed -i \"s/{APP_JS_FILE}/app.$npm_package_version.min.js/g\" dist/index.php && sed -i \"s/{APP_VERSION}/$npm_package_version/g\" dist/index.php && sed -i \"s/{BASE_URL}/$npm_package_config_url/g\" dist/index.php && sed -i \"s/{BASE_SITE}/$npm_package_config_site/g\" dist/index.php",
+    "deploy-windows": "cp src/index.php dist/index.php && sed -i 's/{APP_JS_FILE}/app.%npm_package_version%.min.js/g' dist/index.php && sed -i 's/{APP_VERSION}/%npm_package_version%/g' dist/index.php && sed -i 's/{BASE_URL}/%npm_package_config_url%/g' dist/index.php && sed -i 's/{BASE_SITE}/%npm_package_config_site%/g' dist/index.php",
+    "styles": "cat src/*.css > dist/style.$npm_package_version.css",
+    "styles-windows": "cat src/*.css > dist/style.%npm_package_version%.css"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jquery": "^3.5.13",
+    "@types/materialize-css": "^1.0.11",
+    "typescript": "^4.2.3"
+  },
+  "dependencies": {
+    "@types/marked": "^4.0.3",
+    "@types/paho-mqtt": "^1.0.6",
+    "jquery": "^3.6.0",
+    "marked": "^4.0.16",
+    "materialize-css": "^1.0.0",
+    "uglify-js": "^3.3.11"
+  }
+}
