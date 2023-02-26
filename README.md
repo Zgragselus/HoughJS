@@ -26,3 +26,7 @@ npm run build-windows
 ## Running
 
 Simply load an image, which then gets transformed by hough. Ideally you want image containing contour or such.
+
+### Output
+
+Output is array of lines (normalized)
