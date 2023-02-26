@@ -12,8 +12,8 @@
     "build-windows": "tsc && npm run minify-windows && npm run deploy-windows && npm run styles-windows",
     "minify": "uglifyjs dist/app.js --compress --mangle --no-annotations --output dist/app.$npm_package_version.min.js",
     "minify-windows": "uglifyjs dist/app.js --compress --mangle --no-annotations --output dist/app.%npm_package_version%.min.js",
-    "deploy": "cp src/index.php dist/index.php && sed -i \"s/{APP_JS_FILE}/app.$npm_package_version.min.js/g\" dist/index.php && sed -i \"s/{APP_VERSION}/$npm_package_version/g\" dist/index.php && sed -i \"s/{BASE_URL}/$npm_package_config_url/g\" dist/index.php && sed -i \"s/{BASE_SITE}/$npm_package_config_site/g\" dist/index.php",
-    "deploy-windows": "cp src/index.php dist/index.php && sed -i 's/{APP_JS_FILE}/app.%npm_package_version%.min.js/g' dist/index.php && sed -i 's/{APP_VERSION}/%npm_package_version%/g' dist/index.php && sed -i 's/{BASE_URL}/%npm_package_config_url%/g' dist/index.php && sed -i 's/{BASE_SITE}/%npm_package_config_site%/g' dist/index.php",
+    "deploy": "cp src/index.html dist/index.html && sed -i \"s/{APP_JS_FILE}/app.$npm_package_version.min.js/g\" dist/index.html && sed -i \"s/{APP_VERSION}/$npm_package_version/g\" dist/index.html && sed -i \"s/{BASE_URL}/$npm_package_config_url/g\" dist/index.html && sed -i \"s/{BASE_SITE}/$npm_package_config_site/g\" dist/index.html",
+    "deploy-windows": "cp src/index.html dist/index.html && sed -i 's/{APP_JS_FILE}/app.%npm_package_version%.min.js/g' dist/index.html && sed -i 's/{APP_VERSION}/%npm_package_version%/g' dist/index.html && sed -i 's/{BASE_URL}/%npm_package_config_url%/g' dist/index.html && sed -i 's/{BASE_SITE}/%npm_package_config_site%/g' dist/index.html",
     "styles": "cat src/*.css > dist/style.$npm_package_version.css",
     "styles-windows": "cat src/*.css > dist/style.%npm_package_version%.css"
   },
