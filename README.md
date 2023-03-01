@@ -29,4 +29,4 @@ Simply load an image, which then gets transformed by hough. Ideally you want ima
 
 ### Output
 
-Output is array of lines (normalized)
+Output is array of lines (normalized).
